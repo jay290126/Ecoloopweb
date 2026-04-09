@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL?.toString() || 'http://localhost:8080'
+  import.meta.env.VITE_API_BASE_URL?.toString() || 'https://ecoloopweb-5.onrender.com'
 
 export const api = axios.create({
   baseURL: `${API_BASE_URL}/api`,
