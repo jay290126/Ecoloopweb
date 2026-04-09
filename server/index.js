@@ -1,5 +1,6 @@
 // In production, Render provides env vars directly. `dotenv` is only needed locally.
 // If for some reason it's not installed in the production image, don't crash the server.
+import cors from "cors";
 try {
   require('dotenv').config()
 } catch (_e) {
@@ -32,14 +33,10 @@ app.use(helmet())
 // CORS:
 // - In production when serving frontend from same origin, CORS isn't needed.
 // - In development (Vite on :5173), allow CLIENT_ORIGIN.
-if (process.env.NODE_ENV !== 'production') {
-  app.use(
-    cors({
-      origin: [CLIENT_ORIGIN],
-      credentials: false,
-    }),
-  )
-}
+app.use(cors({
+  origin: "https://tranquil-douhua-6afeef.netlify.app",
+  credentials: true
+}));
 app.use(express.json({ limit: '5mb' }))
 app.use(morgan('dev'))
 app.use(
