@@ -1,6 +1,5 @@
 // In production, Render provides env vars directly. `dotenv` is only needed locally.
-// If for some reason it's not installed in the production image, don't crash the server.
-import cors from "cors";
+// If for some reason it's not installed in the production image, don't crash the serve
 try {
   require('dotenv').config()
 } catch (_e) {
