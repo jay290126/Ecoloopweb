@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ecoloop
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm --prefix server install && npm --prefix frontend install && npm --prefix frontend run build
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        value: ""
+

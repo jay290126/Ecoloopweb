@@ -1,0 +1,13 @@
+{
+  "name": "ecoloop",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n SERVER,WEB -c yellow,cyan \"npm --prefix server run dev\" \"npm --prefix frontend run dev\"",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "start": "node server/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
